@@ -1,0 +1,165 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/Menu/Scripts/DebugMenu.cs" type="Script" id=2]
+[ext_resource path="res://Sounds/Music/DebugMenu.wav" type="AudioStream" id=3]
+[ext_resource path="res://Sounds/Coin.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/jump.wav" type="AudioStream" id=5]
+
+[node name="DebugMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelSelect" type="Label" parent="."]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 57.0
+margin_bottom = 18.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 1, 0, 1 )
+text = "debug_level_select"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TranslationLabel" type="Label" parent="."]
+margin_left = 2.0
+margin_top = 49.877
+margin_right = 57.0
+margin_bottom = 65.877
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 1, 0, 1 )
+text = "debug_translation_label"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SoundTest" type="Label" parent="."]
+margin_left = 260.0
+margin_top = 2.0
+margin_right = 377.0
+margin_bottom = 20.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 1, 0, 1 )
+text = "debug_sound_test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackToMenu" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -52.0
+margin_top = -12.0
+margin_right = 48.0
+margin_bottom = 8.0
+rect_scale = Vector2( 0.5, 0.5 )
+text = "Back to menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelSelector" type="VBoxContainer" parent="."]
+margin_left = 2.0
+margin_top = 13.0
+margin_right = 87.0
+margin_bottom = 81.0
+rect_scale = Vector2( 0.5, 0.5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButton" type="Button" parent="LevelSelector"]
+margin_right = 85.0
+margin_bottom = 20.0
+text = "Menu"
+
+[node name="PlayerTestButton" type="Button" parent="LevelSelector"]
+margin_top = 24.0
+margin_right = 85.0
+margin_bottom = 44.0
+text = "PlayerTest"
+
+[node name="TestWorld2Button" type="Button" parent="LevelSelector"]
+margin_top = 48.0
+margin_right = 85.0
+margin_bottom = 68.0
+text = "TestWorld2"
+
+[node name="Translations" type="VBoxContainer" parent="."]
+margin_left = 2.0
+margin_top = 58.0
+margin_right = 69.0
+margin_bottom = 120.0
+rect_scale = Vector2( 0.5, 0.5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="enbutton" type="Button" parent="Translations"]
+margin_right = 67.0
+margin_bottom = 20.0
+text = "en"
+
+[node name="jpbutton" type="Button" parent="Translations"]
+margin_top = 24.0
+margin_right = 67.0
+margin_bottom = 44.0
+text = "jp"
+
+[node name="Label" type="Label" parent="Translations"]
+margin_top = 48.0
+margin_right = 67.0
+margin_bottom = 64.0
+custom_fonts/font = ExtResource( 1 )
+text = "debug_string"
+
+[node name="SoundTest2" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -60.0
+margin_top = 10.0
+margin_right = 28.101
+margin_bottom = 54.0
+rect_scale = Vector2( 0.5, 0.5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JumpSound" type="Button" parent="SoundTest2"]
+margin_right = 88.0
+margin_bottom = 20.0
+text = "Jump"
+
+[node name="CoinSound" type="Button" parent="SoundTest2"]
+margin_top = 24.0
+margin_right = 88.0
+margin_bottom = 44.0
+text = "Coin"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="Coin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+[connection signal="pressed" from="BackToMenu" to="." method="_on_BackToMenu_pressed"]
+[connection signal="pressed" from="LevelSelector/MenuButton" to="." method="_on_MenuButton_pressed"]
+[connection signal="pressed" from="LevelSelector/PlayerTestButton" to="." method="_on_PlayerTestButton_pressed"]
+[connection signal="pressed" from="LevelSelector/TestWorld2Button" to="." method="_on_TestWorld2Button_pressed"]
+[connection signal="pressed" from="Translations/enbutton" to="." method="_on_enbutton_pressed"]
+[connection signal="pressed" from="Translations/jpbutton" to="." method="_on_jpbutton_pressed"]
+[connection signal="pressed" from="SoundTest2/JumpSound" to="." method="_on_JumpSound_pressed"]
+[connection signal="pressed" from="SoundTest2/CoinSound" to="." method="_on_CoinSound_pressed"]
