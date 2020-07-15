@@ -8,14 +8,21 @@ public class Config {
     string isFullscreen;
 
     public void Save() {
+        //General settings
         CF.SetValue("Main", "Lang", TranslationServer.GetLocale());
-        CF.SetValue("Main", "FULLSCREEN_NOTE", "For some reason this is reversed. Remember that when changing it.");
-        CF.SetValue("Main", "Fullscreen", OS.WindowFullscreen);
+
+        //Display settings
+        CF.SetValue("Display", "FULLSCREEN_NOTE", "For some reason this is reversed. Remember that when changing it.");
+        CF.SetValue("Display", "Fullscreen", OS.WindowFullscreen);
+
+        CF.SetValue("User", "Score", "NONE");
+
+        //Write to the file
         CF.Save("user://settings.cfg");
     }
 
     private void setFullscreen() {
-        isFullscreen = CF.GetValue("Main", "Fullscreen", "True").ToString();
+        isFullscreen = CF.GetValue("Display", "Fullscreen", "True").ToString();
 
         if(isFullscreen == "True") {
             OS.WindowFullscreen = false;
