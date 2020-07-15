@@ -19,7 +19,7 @@ config/name="C# Platformer"
 run/main_scene="res://Scenes/Menu/Menu.tscn"
 boot_splash/image="res://BootSplash.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
-config/icon="res://256.png"
+config/icon="res://icon.png"
 
 [autoload]
 

@@ -62,6 +62,7 @@
     <Compile Include="Scenes\Menu\Scripts\DebugMenu.cs" />
     <Compile Include="Scenes\Menu\Scripts\MainMenu.cs" />
     <Compile Include="UtilScripts\ChangeScene.cs" />
+    <Compile Include="UtilScripts\Config.cs" />
     <Compile Include="UtilScripts\ExitGame.cs" />
     <Compile Include="UtilScripts\fullscreen.cs" />
   </ItemGroup>
