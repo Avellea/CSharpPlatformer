@@ -1,14 +1,20 @@
 using Godot;
+using Globals;
 using System;
 
 public class MainMenu : Node2D {
     
     string GAME_VERSION = "1.0 - DEBUG";
 
-
     public override void _Ready() {
         Config config = new Config();
+        Label scoreLabel = (Label)GetNode("Labels/ScoreLabel");
+        GlobalVars globalVars = new GlobalVars();
+
         config.CheckExist();
+
+        scoreLabel.Text = Globals.GlobalVars.Score.ToString();
+
     }
 
     public void saveLocale() {

@@ -11,7 +11,6 @@ public class Player : KinematicBody2D
 	private float FRICTION   = 0.25f;
 	private float AIR_RESIST = 0.02f;
 
-
 	private Vector2 motion;
 
 	//Leaving here for future use, just in case. Can't think of anything right off the bat though.
@@ -25,7 +24,7 @@ public class Player : KinematicBody2D
 	public void walk(float delta) {
 		AnimationPlayer anim = (AnimationPlayer)GetNode("AnimationPlayer");
 		Sprite sprite        = (Sprite)GetNode("Sprite");
-		float x_input = Input.GetActionStrength("ui_right") - Input.GetActionStrength("ui_left");
+		float x_input = Input.GetActionStrength("right") - Input.GetActionStrength("left");
 		if(x_input != 0) {
 			anim.Play("Run");
 			motion.x += x_input * ACCELERATION * delta;
@@ -36,23 +35,24 @@ public class Player : KinematicBody2D
 		}
 	}
 
-	//Same as above, except this time theres pressure sensitivity! Short push = short jump, long = long jump.
+	//Same as above, except this time theres time sensitivity! Short push = short jump, long = long jump.
 	public void jump() {
-		AnimationPlayer anim = (AnimationPlayer)GetNode("AnimationPlayer");
-		Sprite sprite        = (Sprite)GetNode("Sprite");
+		AnimationPlayer anim 		= (AnimationPlayer)GetNode("AnimationPlayer");
+		Sprite sprite        		= (Sprite)GetNode("Sprite");
 		AudioStreamPlayer jumpSound = (AudioStreamPlayer)GetNode("JumpSound");
-		float x_input = Input.GetActionStrength("ui_right") - Input.GetActionStrength("ui_left");
+		
+		float x_input = Input.GetActionStrength("right") - Input.GetActionStrength("left");
 		if(IsOnFloor()) {
 			if(x_input == 0) {
 				motion.x = Mathf.Lerp(motion.x, 0, FRICTION);
 			}
-			if(Input.IsActionJustPressed("ui_up")) {
+			if(Input.IsActionJustPressed("jump")) {
 				jumpSound.Play();
 				motion.y = -JUMP_FORCE;
 			}
 		} else {
 			anim.Play("Jump");
-			if(Input.IsActionJustReleased("ui_up") && motion.y < -JUMP_FORCE / 2) {
+			if(Input.IsActionJustReleased("jump") && motion.y < -JUMP_FORCE / 2) {
 				motion.y = -JUMP_FORCE / 2;
 			}
 			if(x_input == 0) {

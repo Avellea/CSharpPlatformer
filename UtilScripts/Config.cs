@@ -25,14 +25,14 @@ public class Config {
         isFullscreen = CF.GetValue("Display", "Fullscreen", "True").ToString();
 
         if(isFullscreen == "True") {
-            OS.WindowFullscreen = false;
-        } else {
             OS.WindowFullscreen = true;
+        } else {
+            OS.WindowFullscreen = false;
         }
     }
 
     public void Load() {
-        //GD.Print(OS.GetUserDataDir()); //C:\Users\<USER>\AppData\Roaming\Godot\app_userdata\C# Platformer\settings.cfg
+        //GD.Print(OS.GetUserDataDir()); //C:\Users\<USER>\AppData\Roaming\Godot\app_userdata\C# Platformer\settngs.cfg
         lang = CF.GetValue("Main", "Lang", "en").ToString();
         TranslationServer.SetLocale(lang);
         

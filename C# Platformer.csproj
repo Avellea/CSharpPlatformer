@@ -8,7 +8,8 @@
     <OutputPath>.mono\temp\bin\$(Configuration)</OutputPath>
     <RootNamespace>CPlatformer</RootNamespace>
     <AssemblyName>C# Platformer</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <RuntimeIdentifier>win</RuntimeIdentifier>
     <GodotProjectGeneratorVersion>1.0.0.0</GodotProjectGeneratorVersion>
     <BaseIntermediateOutputPath>.mono\temp\obj</BaseIntermediateOutputPath>
     <IntermediateOutputPath>$(BaseIntermediateOutputPath)\$(Configuration)</IntermediateOutputPath>
@@ -41,6 +42,9 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestExport|AnyCPU'">
+    <OutputPath>bin\TestExport\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies">
       <Version>1.0.0</Version>
@@ -54,6 +58,13 @@
       <Private>False</Private>
       <HintPath>$(ProjectDir)/.mono/assemblies/$(ApiConfiguration)/GodotSharpEditor.dll</HintPath>
     </Reference>
+    <!--My Libraries-->
+    <!-- <PackageReference Include="DiscordRichPresence">
+      <Version>1.0.150</Version>
+    </PackageReference> -->
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
@@ -62,9 +73,12 @@
     <Compile Include="Scenes\Menu\Scripts\DebugMenu.cs" />
     <Compile Include="Scenes\Menu\Scripts\MainMenu.cs" />
     <Compile Include="UtilScripts\ChangeScene.cs" />
+    <Compile Include="UtilScripts\Coin.cs" />
     <Compile Include="UtilScripts\Config.cs" />
     <Compile Include="UtilScripts\ExitGame.cs" />
     <Compile Include="UtilScripts\fullscreen.cs" />
+    <Compile Include="UtilScripts\Globals.cs" />
+    <!-- <Compile Include="UtilScripts\DiscordRPCFile.cs" /> -->
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
