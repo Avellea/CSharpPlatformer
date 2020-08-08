@@ -15,12 +15,12 @@ public class Player : KinematicBody2D
 	private Vector2 motion;
 
     public override void _Ready() {
-		/*Node2D MobileUI = (Node2D)GetNode("MobileUI");
-		if(string.Equals(OS.GetName(), "Android")) {
-			MobileUI.Show();
+        Node2D MobileUI = (Node2D)GetNode("MobileUI");
+        if (string.Equals(OS.GetName(), "Android")) {
+            MobileUI.Show();
         } else {
-			MobileUI.Hide();
-        }*/
+            MobileUI.Hide();
+        }
     }
 
 

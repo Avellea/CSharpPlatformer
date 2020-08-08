@@ -4,7 +4,7 @@ public class PauseLogic : Node {
 
     private bool Paused;
 
-	public void pause() {
+	private void pause() {
 		if (Input.IsActionJustPressed("pause") && Paused == false) {
             GetTree().Paused = true;
 			Paused = true;
