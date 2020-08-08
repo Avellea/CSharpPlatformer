@@ -1,6 +1,8 @@
 .vscode/
 mono/
 bin/
+.vs/
+
 
 
 # Godot-specific ignores

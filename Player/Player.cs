@@ -1,4 +1,5 @@
 using Godot;
+using System;
 
 public class Player : KinematicBody2D
 {
@@ -13,15 +14,18 @@ public class Player : KinematicBody2D
 
 	private Vector2 motion;
 
-	//Leaving here for future use, just in case. Can't think of anything right off the bat though.
-	//I could be an idiot and store the score here but I should really make a proper base for that lol
-	// public override void _Ready() {
+    public override void _Ready() {
+		/*Node2D MobileUI = (Node2D)GetNode("MobileUI");
+		if(string.Equals(OS.GetName(), "Android")) {
+			MobileUI.Show();
+        } else {
+			MobileUI.Hide();
+        }*/
+    }
 
-	// }
 
-
-	//Its a walk function, push the button, the dude be walkin left or right
-	public void walk(float delta) {
+    //Its a walk function, push the button, the dude be walkin left or right
+    public void walk(float delta) {
 		AnimationPlayer anim = (AnimationPlayer)GetNode("AnimationPlayer");
 		Sprite sprite        = (Sprite)GetNode("Sprite");
 		float x_input = Input.GetActionStrength("right") - Input.GetActionStrength("left");
@@ -61,8 +65,8 @@ public class Player : KinematicBody2D
 		}
 	}
 
-	//Actually do the things here.
-	public override void _PhysicsProcess(float delta) {
+    //Actually do the things here.
+    public override void _PhysicsProcess(float delta) {
 		
 		walk(delta);
 		motion.y += GRAVITY * delta;

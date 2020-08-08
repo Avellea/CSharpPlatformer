@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/BlackWhiteSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Player/MenuPlayer.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/flags/en-flag-unclicked.png" type="Texture" id=9]
 [ext_resource path="res://Assets/flags/en-flag-clicked.png" type="Texture" id=10]
 [ext_resource path="res://Scenes/Utils/Coin.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Mobile UI/MobileUI.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -125,5 +126,7 @@ shape = SubResource( 1 )
 
 [node name="Coin" parent="." instance=ExtResource( 11 )]
 position = Vector2( 95.3207, 144.638 )
+
+[node name="MobileUI" parent="." instance=ExtResource( 12 )]
 [connection signal="pressed" from="Labels/TranslationButtons/en_translate" to="." method="_on_en_translate_pressed"]
 [connection signal="pressed" from="Labels/TranslationButtons/jp_translate" to="." method="_on_jp_translate_pressed"]

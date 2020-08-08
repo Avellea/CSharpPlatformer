@@ -2,6 +2,8 @@
 menu_copyright,(c) 2020 Jared Kozel,コピーライト 2020
 menu_start,Start,スタート
 menu_exit,Exit,エグジット
+menu_options,Options,オプション 
+options_fullscreen,Fullscreen,フルスクリーン
 debug_string,English test,にほんごテスト
 debug_level_select,Level select,レベルせんたく
 debug_translation_label,Language,げんご

@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/DefaultTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/Menu/Scripts/MainMenu2.cs" type="Script" id=2]
+
+[node name="Options" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menu_options" type="Label" parent="."]
+margin_right = 99.0
+margin_bottom = 22.0
+text = "menu_options"
+
+[node name="OptionsButtons" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -43.0
+margin_top = -34.0
+margin_right = 43.0
+margin_bottom = 34.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fullscreen" type="Button" parent="OptionsButtons"]
+margin_right = 86.0
+margin_bottom = 20.0
+theme = ExtResource( 1 )
+text = "options_fullscreen"
+
+[node name="en_translate" type="Button" parent="OptionsButtons"]
+margin_top = 24.0
+margin_right = 86.0
+margin_bottom = 44.0
+theme = ExtResource( 1 )
+text = "English"
+
+[node name="jp_translate" type="Button" parent="OptionsButtons"]
+margin_top = 48.0
+margin_right = 86.0
+margin_bottom = 68.0
+theme = ExtResource( 1 )
+text = "にほんじん"
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -36.0
+margin_top = -22.0
+margin_right = -2.0
+margin_bottom = -4.0
+text = "Back"
+[connection signal="pressed" from="OptionsButtons/fullscreen" to="." method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="OptionsButtons/en_translate" to="." method="_on_en_translate_pressed"]
+[connection signal="pressed" from="OptionsButtons/jp_translate" to="." method="_on_jp_translate_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_back_pressed"]

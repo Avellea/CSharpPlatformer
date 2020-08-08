@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Mobile UI/MoveKey.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Mobile UI/MoveKeyPressed.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Mobile UI/Pause.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Mobile UI/PausePressed.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="MobileUI" type="Node2D"]
+
+[node name="RightButton" type="TouchScreenButton" parent="."]
+position = Vector2( 49, 149 )
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+shape = SubResource( 1 )
+action = "right"
+
+[node name="RightButton2" type="TouchScreenButton" parent="."]
+position = Vector2( 6, 6 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 4 )
+shape = SubResource( 1 )
+action = "pause"
+
+[node name="JumpButton" type="TouchScreenButton" parent="."]
+position = Vector2( 285, 173 )
+rotation = -1.5708
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+shape = SubResource( 1 )
+action = "jump"
+
+[node name="LeftButton" type="TouchScreenButton" parent="."]
+position = Vector2( 35, 173 )
+rotation = -3.14159
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+shape = SubResource( 1 )
+action = "left"

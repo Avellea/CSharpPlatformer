@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Player.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.cs" type="Script" id=2]
 [ext_resource path="res://Sounds/jump.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Mobile UI/MobileUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Menu/PauseMenu/PauseLogic.cs" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5.99691, 7.90825 )
@@ -77,8 +79,29 @@ anims/Stand = SubResource( 4 )
 position = Vector2( 0, -14 )
 offset = Vector2( 0, -8 )
 current = true
-smoothing_enabled = true
 smoothing_speed = 7.0
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+
+[node name="MobileUI" parent="." instance=ExtResource( 4 )]
+pause_mode = 2
+position = Vector2( -160, -112 )
+
+[node name="PauseMenu" type="Popup" parent="."]
+pause_mode = 2
+margin_left = 120.0
+margin_top = 32.0
+margin_right = 160.0
+margin_bottom = 72.0
+script = ExtResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -280.0
+margin_top = -144.0
+color = Color( 0.682353, 0, 0, 0.882353 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

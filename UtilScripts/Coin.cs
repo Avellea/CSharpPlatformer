@@ -1,5 +1,4 @@
 using Godot;
-using System.Threading;
 
 public class Coin : Area2D {
 
