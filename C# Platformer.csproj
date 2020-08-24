@@ -68,7 +68,6 @@
     <Compile Include="Scenes\Menu\PauseMenu\PauseLogic.cs" />
     <Compile Include="Scenes\Menu\Scripts\**" />
     <Compile Include="UtilScripts\**" />
-    <Compile Include="DiscordGameSDK\**" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
