@@ -8,6 +8,7 @@ func _ready():
 
 	var cs_node = cs_class.new()
 	cs_node.setConfig();
+	
 
 	animationPlayer.play("Fade")
 	yield(animationPlayer, "animation_finished")

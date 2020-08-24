@@ -17,8 +17,7 @@ _global_script_class_icons={
 
 config/name="C# Platformer"
 run/main_scene="res://Scenes/Bootsplash/BootSplash.tscn"
-boot_splash/image="res://BootSplash.png"
-boot_splash/bg_color=Color( 0, 0, 0, 1 )
+boot_splash/image="res://Scenes/Bootsplash/GodotSplash.png"
 config/icon="res://icon.png"
 
 [autoload]
@@ -150,4 +149,3 @@ debugger_agent/wait_timeout=10000
 [rendering]
 
 environment/default_clear_color=Color( 0, 0, 0, 1 )
-environment/default_environment="res://default_env.tres"

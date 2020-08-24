@@ -1,7 +1,7 @@
 .vscode/
-mono/
 bin/
-.vs/
+.vs/*
+UpgradeLog.htm
 
 
 

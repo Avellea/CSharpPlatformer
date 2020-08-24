@@ -14,18 +14,22 @@ public class Player : KinematicBody2D
 
 	private Vector2 motion;
 
-    public override void _Ready() {
-        Node2D MobileUI = (Node2D)GetNode("MobileUI");
-        if (string.Equals(OS.GetName(), "Android")) {
-            MobileUI.Show();
-        } else {
-            MobileUI.Hide();
-        }
-    }
 
 
-    //Its a walk function, push the button, the dude be walkin left or right
-    public void walk(float delta) {
+	public override void _Ready() {
+		#if GODOT_MOBILE
+			showMobileUI();
+		#endif
+	}
+
+
+	public void showMobileUI() {
+		GetNode<Node2D>("MobileUI").Show();
+		GD.Print("We're on mobile!");
+	}
+
+	//Its a walk function, push the button, the dude be walkin left or right
+	public void walk(float delta) {
 		AnimationPlayer anim = (AnimationPlayer)GetNode("AnimationPlayer");
 		Sprite sprite        = (Sprite)GetNode("Sprite");
 		float x_input = Input.GetActionStrength("right") - Input.GetActionStrength("left");
@@ -42,7 +46,6 @@ public class Player : KinematicBody2D
 	//Same as above, except this time theres time sensitivity! Short push = short jump, long = long jump.
 	public void jump() {
 		AnimationPlayer anim 		= (AnimationPlayer)GetNode("AnimationPlayer");
-		Sprite sprite        		= (Sprite)GetNode("Sprite");
 		AudioStreamPlayer jumpSound = (AudioStreamPlayer)GetNode("JumpSound");
 		
 		float x_input = Input.GetActionStrength("right") - Input.GetActionStrength("left");
@@ -65,8 +68,8 @@ public class Player : KinematicBody2D
 		}
 	}
 
-    //Actually do the things here.
-    public override void _PhysicsProcess(float delta) {
+	//Actually do the things here.
+	public override void _PhysicsProcess(float delta) {
 		
 		walk(delta);
 		motion.y += GRAVITY * delta;

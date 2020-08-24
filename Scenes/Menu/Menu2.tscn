@@ -65,7 +65,7 @@ anchor_bottom = 1.0
 margin_top = -24.0
 margin_right = 78.0
 theme = ExtResource( 2 )
-text = "menu_copyrigh"
+text = "menu_copyright"
 __meta__ = {
 "_edit_use_anchors_": false
 }
