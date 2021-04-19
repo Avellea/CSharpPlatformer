@@ -45,7 +45,7 @@ public class Player : KinematicBody2D
 
 	//Same as above, except this time theres time sensitivity! Short push = short jump, long = long jump.
 	public void jump() {
-		AnimationPlayer anim 		= (AnimationPlayer)GetNode("AnimationPlayer");
+		AnimationPlayer anim = (AnimationPlayer)GetNode("AnimationPlayer");
 		AudioStreamPlayer jumpSound = (AudioStreamPlayer)GetNode("JumpSound");
 		
 		float x_input = Input.GetActionStrength("right") - Input.GetActionStrength("left");
